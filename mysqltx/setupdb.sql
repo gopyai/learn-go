@@ -1,0 +1,28 @@
+DROP DATABASE IF EXISTS xxx;
+CREATE DATABASE IF NOT EXISTS xxx;
+
+DROP USER IF EXISTS xxx;
+CREATE USER xxx IDENTIFIED BY 'xxx';
+GRANT ALL ON xxx.* TO xxx;
+
+USE xxx;
+
+CREATE TABLE IF NOT EXISTS request(
+	id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	status ENUM ('created', 'done'),
+
+	INDEX (status)
+);
+
+CREATE TABLE IF NOT EXISTS step(
+	id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	request_id BIGINT UNSIGNED NOT NULL,
+	status ENUM ('created', 'done'),
+
+	FOREIGN KEY (request_id) REFERENCES request (id)
+		ON DELETE CASCADE
+		ON UPDATE RESTRICT,
+
+	INDEX (request_id),
+	INDEX (status)
+);

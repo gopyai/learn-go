@@ -1,0 +1,8 @@
+To use docker to compile go into linux binary:
+	docker run --rm -v "$PWD":/usr/src/linuxbin -w /usr/src/linuxbin golang go build -v
+
+To build and run docker image:
+	docker build -t arief/mygo:v1 .
+	docker run --rm -t arief/mygo:v1
+	docker run --rm -it arief/mygo:v1
+	docker run --rm arief/mygo:v1	go version
