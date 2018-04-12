@@ -19,23 +19,23 @@ func main() {
 	//	var sta *redis.StatusCmd
 
 	//	sta = client.Set("tes", []byte{1, 2, 3}, time.Second*10)
-	//	ifErr(sta.Err())
+	//	panicIf(sta.Err())
 	//	fmt.Println(sta.String())
 
 	cmd := client.Get("tes")
-	ifErr(cmd.Err())
+	panicIf(cmd.Err())
 
 	b, e := cmd.Bytes()
-	ifErr(e)
+	panicIf(e)
 	fmt.Printf("Get: %v\n", b)
 
 	//	sta = client.FlushAll()
-	//	ifErr(sta.Err())
+	//	panicIf(sta.Err())
 	//	fmt.Println(sta.String())
 
 }
 
-func ifErr(e error) {
+func panicIf(e error) {
 	if e != nil {
 		log.Panic(e)
 	}
