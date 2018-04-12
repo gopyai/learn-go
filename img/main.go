@@ -12,11 +12,11 @@ import (
 
 var (
 	white color.Color = color.RGBA{255, 255, 255, 255}
-	black color.Color = color.RGBA{0, 0, 0, 255}
+	// black color.Color = color.RGBA{0, 0, 0, 255}
 	blue  color.Color = color.RGBA{0, 0, 255, 255}
 )
 
-// ref) http://golang.org/doc/articles/image_draw.html
+// Ref: http://golang.org/doc/articles/image_draw.html
 func main() {
 
 	m := image.NewRGBA(image.Rect(0, 0, 640, 480)) //*NRGBA (image.Image interface)
@@ -37,7 +37,7 @@ func main() {
 
 }
 
-// show  a specified file by Preview.app for OS X(darwin)
+// Show  a specified file by Preview.app for OS X(darwin)
 func Show(name string) {
 	command := "open"
 	arg1 := "-a"
