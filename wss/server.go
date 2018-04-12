@@ -15,10 +15,10 @@ var (
 
 func echo(w http.ResponseWriter, r *http.Request) {
 	c, err := upgrader.Upgrade(w, r, nil)
-	isErr(err)
+	panicIf(err)
 	defer c.Close()
 
-	//isErr(c.WriteMessage(websocket.CloseMessage, websocket.FormatCloseMessage(websocket.CloseNormalClosure, "")))
+	// panicIf(c.WriteMessage(websocket.CloseMessage, websocket.FormatCloseMessage(websocket.CloseNormalClosure, "")))
 
 	for {
 		mt, message, err := c.ReadMessage()
@@ -30,11 +30,11 @@ func echo(w http.ResponseWriter, r *http.Request) {
 			}
 			panic(err)
 		}
-		isErr(err)
+		panicIf(err)
 		fmt.Println("Server read:", string(message))
 
 		// Will error if write message after sending close frame, see above remarked close frame
-		isErr(c.WriteMessage(mt, message))
+		panicIf(c.WriteMessage(mt, message))
 		//_ = mt
 	}
 }

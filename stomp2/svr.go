@@ -1,4 +1,3 @@
-// svr
 package main
 
 import (
@@ -9,18 +8,18 @@ import (
 
 func Producer(host, qRequest string, f func(string, []byte) []byte) {
 	mq, e := stomp.Dial("tcp", fmt.Sprintf("%s:61613", host))
-	isErr(e)
+	panicIf(e)
 	sub, e := mq.Subscribe(qRequest, stomp.AckAuto)
-	isErr(e)
+	panicIf(e)
 	for {
 		msg, e := sub.Read()
-		isErr(e)
+		panicIf(e)
 
 		corrId := msg.Header.Get("correlation-id")
 		qReply := msg.Header.Get("reply-to")
 		opName := msg.Header.Get("operation-name")
 
-		isErr(mq.Send(
+		panicIf(mq.Send(
 			qReply,
 			"application/json",
 			f(opName, msg.Body), // execute handler

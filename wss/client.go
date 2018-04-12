@@ -23,11 +23,11 @@ func client(caCer *x509.Certificate) {
 
 	// Dial, write message, and close
 	c, _, err := selfSignedDialer.Dial(u.String(), nil)
-	isErr(err)
+	panicIf(err)
 	defer c.Close()
-	isErr(c.SetReadDeadline(time.Now().Add(time.Second * 3)))
+	panicIf(c.SetReadDeadline(time.Now().Add(time.Second * 3)))
 
-	isErr(c.WriteMessage(websocket.TextMessage, []byte("Hello there ...")))
+	panicIf(c.WriteMessage(websocket.TextMessage, []byte("Hello there ...")))
 
 	msgType, msg, err := c.ReadMessage()
 	if err != nil {
@@ -40,7 +40,7 @@ func client(caCer *x509.Certificate) {
 	}
 	fmt.Printf("Client: msgType:%v, msg:%s\n", msgType, msg)
 
-	isErr(c.WriteMessage(websocket.CloseMessage, websocket.FormatCloseMessage(websocket.CloseNormalClosure, "Asik")))
+	panicIf(c.WriteMessage(websocket.CloseMessage, websocket.FormatCloseMessage(websocket.CloseNormalClosure, "Asik")))
 
 	time.Sleep(time.Second)
 

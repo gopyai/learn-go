@@ -5,7 +5,7 @@ func main() {
 	client()
 }
 
-func isErr(err error) {
+func panicIf(err error) {
 	if err != nil {
 		panic(err)
 	}

@@ -31,7 +31,7 @@ func svr() {
 	config.Rand = rand.Reader
 	service := "0.0.0.0:443"
 	listener, err := tls.Listen("tcp", service, &config)
-	isErr(err)
+	panicIf(err)
 	log.Print("server: listening")
 
 	for {

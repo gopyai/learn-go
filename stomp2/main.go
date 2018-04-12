@@ -1,5 +1,4 @@
 // Stomp2 adalah untuk testing stomp dengan PHP
-
 package main
 
 import (

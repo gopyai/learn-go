@@ -46,20 +46,20 @@ func cli() {
 	//
 
 	req, e := http.NewRequest("POST", "https://localhost:10000/hello", bytes.NewReader([]byte{1, 2, 3}))
-	isErr(e)
+	panicIf(e)
 
 	cli := &http.Client{Transport: &http.Transport{
 		TLSClientConfig:    t,
 		DisableCompression: true,
 	}}
 	res, e := cli.Do(req)
-	isErr(e)
+	panicIf(e)
 	out, e := ioutil.ReadAll(res.Body)
-	isErr(e)
+	panicIf(e)
 	log.Println(string(out))
 }
 
-func isErr(e error) {
+func panicIf(e error) {
 	if e != nil {
 		panic(e)
 	}

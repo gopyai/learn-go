@@ -20,15 +20,15 @@ func main() {
 	//
 
 	cerCA2, e := x509.ParseCertificate(cerCA_b)
-	isErr(e)
+	panicIf(e)
 	cerSvr2, e := x509.ParseCertificate(cerSvr_b)
-	isErr(e)
+	panicIf(e)
 
 	e = cerSvr2.CheckSignatureFrom(cerCA2)
-	isErr(e)
+	panicIf(e)
 }
 
-func isErr(e error) {
+func panicIf(e error) {
 	if e != nil {
 		panic(e)
 	}

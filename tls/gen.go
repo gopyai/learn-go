@@ -11,7 +11,7 @@ import (
 func genCA() (priv *rsa.PrivateKey, cer *x509.Certificate, key, cer_b []byte) {
 	serialNumberLimit := new(big.Int).Lsh(big.NewInt(1), 128)
 	serialNumber, err := rand.Int(rand.Reader, serialNumberLimit)
-	isErr(err)
+	panicIf(err)
 
 	cer = &x509.Certificate{
 		SerialNumber: serialNumber,
@@ -39,7 +39,7 @@ func genCA() (priv *rsa.PrivateKey, cer *x509.Certificate, key, cer_b []byte) {
 
 	key = x509.MarshalPKCS1PrivateKey(priv)
 	cer_b, err = x509.CreateCertificate(rand.Reader, cer, cer, pub, priv)
-	isErr(err)
+	panicIf(err)
 
 	return priv, cer, key, cer_b
 }
@@ -49,7 +49,7 @@ func genSvr(privCA *rsa.PrivateKey, cerCA *x509.Certificate) (
 ) {
 	serialNumberLimit := new(big.Int).Lsh(big.NewInt(1), 128)
 	serialNumber, err := rand.Int(rand.Reader, serialNumberLimit)
-	isErr(err)
+	panicIf(err)
 
 	cer = &x509.Certificate{
 		SerialNumber: serialNumber,
@@ -76,7 +76,7 @@ func genSvr(privCA *rsa.PrivateKey, cerCA *x509.Certificate) (
 
 	key = x509.MarshalPKCS1PrivateKey(priv)
 	cer_b, err = x509.CreateCertificate(rand.Reader, cer, cerCA, pub, privCA)
-	isErr(err)
+	panicIf(err)
 
 	return priv, cer, key, cer_b
 }

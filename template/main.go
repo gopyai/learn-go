@@ -19,10 +19,10 @@ func main() {
 		Name string
 		Age  int
 	}{"Arief", 17}
-	isErr(tx.Execute(os.Stdout, d))
+	panicIf(tx.Execute(os.Stdout, d))
 }
 
-func isErr(e error) {
+func panicIf(e error) {
 	if e != nil {
 		panic(e)
 	}

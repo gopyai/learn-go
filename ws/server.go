@@ -14,13 +14,13 @@ var (
 
 func echo(w http.ResponseWriter, r *http.Request) {
 	c, err := upgrader.Upgrade(w, r, nil)
-	isErr(err)
+	panicIf(err)
 	defer c.Close()
 	for {
 		mt, message, err := c.ReadMessage()
-		isErr(err)
+		panicIf(err)
 		fmt.Println("Server read:", string(message))
-		isErr(c.WriteMessage(mt, message))
+		panicIf(c.WriteMessage(mt, message))
 	}
 }
 

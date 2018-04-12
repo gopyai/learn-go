@@ -19,14 +19,14 @@ func main() {
 
 	// Create the database handle, confirm driver is present
 	db, e := sql.Open("mysql", dsn)
-	isErr(e)
+	panicIf(e)
 	defer db.Close()
 
 	_, e = db.Exec("INSERT INTO satu (name, age) VALUES (?,?)", "Ana", 16)
-	isErr(e)
+	panicIf(e)
 }
 
-func isErr(e error) {
+func panicIf(e error) {
 	if e != nil {
 		panic((e))
 	}

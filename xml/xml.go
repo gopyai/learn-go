@@ -82,7 +82,7 @@ func (y *yed) evEndElement(s string) {
 
 func (y *yed) parseXml() {
 	f, e := os.Open("yed2.graphml")
-	isErr(e)
+	panicIf(e)
 	defer f.Close()
 	dec := xml.NewDecoder(f)
 
@@ -150,7 +150,7 @@ func (y *yed) parseXml() {
 	}
 }
 
-func isErr(e error) {
+func panicIf(e error) {
 	if e != nil {
 		panic(e)
 	}

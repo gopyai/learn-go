@@ -1,4 +1,3 @@
-// radix
 package main
 
 import (
@@ -11,18 +10,18 @@ func main() {
 	fmt.Println("Hello World!")
 
 	cli, e := redis.Dial("tcp", "localhost:6379")
-	ifErr(e)
+	panicIf(e)
 	defer func() {
-		ifErr(cli.Close())
+		panicIf(cli.Close())
 	}()
 
 	r := cli.Cmd("KEYS", "*")
 	ss, e := r.List()
-	ifErr(e)
+	panicIf(e)
 	fmt.Println(ss)
 }
 
-func ifErr(e error) {
+func panicIf(e error) {
 	if e != nil {
 		panic(e)
 	}

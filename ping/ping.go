@@ -8,7 +8,6 @@ import (
 	"encoding/binary"
 	"net"
 
-	"github.com/pkg/errors"
 	"golang.org/x/net/icmp"
 	"golang.org/x/net/ipv4"
 )
@@ -35,9 +34,9 @@ func main() {
 
 func doPing(numOfIPAddrs int, getIPAddr func(int) net.Addr, replyFrom func(int)) {
 	conn, err := icmp.ListenPacket("ip4:icmp", "0.0.0.0")
-	isErr(err)
+	panicIf(err)
 	defer conn.Close()
-	isErr(conn.SetReadDeadline(time.Now().Add(3 * time.Second)))
+	panicIf(conn.SetReadDeadline(time.Now().Add(3 * time.Second)))
 
 	// Send echo
 loopEcho:
@@ -53,7 +52,7 @@ loopEcho:
 		}
 
 		b, err := msg.Marshal(nil)
-		isErr(err)
+		panicIf(err)
 		n, err := conn.WriteTo(b, ipAddr)
 		if err != nil {
 			switch err.(type) {
@@ -64,7 +63,7 @@ loopEcho:
 			}
 		}
 		if n != len(b) {
-			panic(errors.Errorf("got %v; want %v", n, len(b)))
+			panic(fmt.Errorf("got %v; want %v", n, len(b)))
 		}
 		fmt.Println("Ping:", ipAddr, "sequence:", seq)
 	}
@@ -83,20 +82,20 @@ loopReply:
 			}
 		}
 		rm, err := icmp.ParseMessage(ProtocolICMP, rb[:n])
-		isErr(err)
+		panicIf(err)
 		switch rm.Type {
 		case ipv4.ICMPTypeEchoReply:
 		default:
-			panic(errors.Errorf("got %+v from %v; want echo reply", rm, peer))
+			panic(fmt.Errorf("got %+v from %v; want echo reply", rm, peer))
 		}
 		b, err := rm.Body.Marshal(ProtocolICMP)
-		isErr(err)
+		panicIf(err)
 		seq := int(binary.BigEndian.Uint16(b[2:4]))
 		replyFrom(seq)
 	}
 }
 
-func isErr(err error) {
+func panicIf(err error) {
 	if err != nil {
 		panic(err)
 	}
