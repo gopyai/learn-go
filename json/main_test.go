@@ -1,4 +1,4 @@
-package main
+package main_test
 
 import (
 	"encoding/json"
@@ -12,11 +12,16 @@ type (
 	}
 )
 
-func main() {
+func Example() {
 	var d data
 	fmt.Println("Before:", d)
 	unmarshal(marshal(), &d)
 	fmt.Println("After:", d)
+	// Output:
+	// Before: { 0}
+	// Marshal: {"Name":"Arief","Age":17}
+	// Unmarshal: &{Arief 17}
+	// After: {Arief 17}
 }
 
 func marshal() []byte {
