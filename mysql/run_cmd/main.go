@@ -1,14 +1,14 @@
 package main
 
 import (
-	"os/exec"
 	"bytes"
 	"fmt"
 	"os"
+	"os/exec"
 )
 
 const (
-	mysql    = "c:\\Program Files\\MySQL\\MySQL Server 5.7\\bin\\mysql.exe"
+	// mysql    = "c:\\Program Files\\MySQL\\MySQL Server 5.7\\bin\\mysql.exe"
 	rootPass = "root"
 )
 
@@ -17,7 +17,7 @@ func main() {
 	panicIf(err)
 	defer f.Close()
 
-	cmd := exec.Command(mysql, "-u", "root", "-p"+rootPass)
+	cmd := exec.Command("mysql", "-u", "root", "-p"+rootPass)
 	cmd.Stdin = f
 
 	var out bytes.Buffer
