@@ -1,4 +1,4 @@
-package main_test
+package main
 
 import (
 	"encoding/json"
@@ -12,7 +12,7 @@ type (
 	}
 )
 
-func Example() {
+func ExampleSimple() {
 	var d data
 	fmt.Println("Before:", d)
 	unmarshal(marshal(), &d)
@@ -35,10 +35,4 @@ func unmarshal(b []byte, d interface{}) {
 	err := json.Unmarshal(b, d)
 	panicIf(err)
 	fmt.Println("Unmarshal:", d)
-}
-
-func panicIf(err error) {
-	if err != nil {
-		panic(err)
-	}
 }
