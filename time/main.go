@@ -12,6 +12,9 @@ const (
 )
 
 func main() {
+	var x time.Time
+	fmt.Println(x, x.IsZero())
+
 	var t2 time.Time
 	t := time.Now()
 
