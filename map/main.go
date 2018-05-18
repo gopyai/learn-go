@@ -8,4 +8,8 @@ func main() {
 
 	fmt.Println(m1["hello"])
 	fmt.Println(m2["hello"])
+
+	world := "world"
+	m1["hello"] = false
+	m2["hello"] = &world
 }
