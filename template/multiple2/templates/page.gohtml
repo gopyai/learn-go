@@ -1,0 +1,11 @@
+{{define "Page"}}
+<title>{{.Title}}</title>
+<menu>
+{{range .Menu -}}
+    <item>{{.}}</item>
+{{end -}}
+</menu>
+<content>
+{{template "Content" .Content}}
+</content>
+{{end}}
