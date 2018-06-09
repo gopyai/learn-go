@@ -6,6 +6,11 @@ import (
 )
 
 type (
+	collection struct {
+		Type string
+		Item json.RawMessage
+	}
+
 	book struct {
 		Title string
 		Pages int
@@ -14,11 +19,6 @@ type (
 	game struct {
 		Name         string
 		PlayDuration int
-	}
-
-	collection struct {
-		Type string
-		Item json.RawMessage
 	}
 )
 
