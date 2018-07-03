@@ -6,7 +6,7 @@ import (
 	"encoding/pem"
 	"io/ioutil"
 	"os"
-	"vos/onerror"
+	"devx/iferr"
 )
 
 func MarshalPrivateKey(pri *rsa.PrivateKey) []byte {
@@ -46,7 +46,7 @@ func SavePrivateKey(fileName string, pri *rsa.PrivateKey) (err error) {
 
 func ReadPrivateKeyFromFile(f *os.File) (pri *rsa.PrivateKey, err error) {
 	b, e := ioutil.ReadAll(f)
-	onerror.Panic(e)
+	iferr.Panic(e)
 	block, _ := pem.Decode(b)
 	return UnmarshalPrivateKey(block.Bytes)
 }
@@ -82,7 +82,7 @@ func SavePublicKey(fileName string, pub *rsa.PublicKey) (err error) {
 
 func ReadPublicKeyFromFile(f *os.File) (pub *rsa.PublicKey, err error) {
 	b, e := ioutil.ReadAll(f)
-	onerror.Panic(e)
+	iferr.Panic(e)
 	block, _ := pem.Decode(b)
 	return UnmarshalPublicKey(block.Bytes)
 }

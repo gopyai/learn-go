@@ -5,12 +5,12 @@ import (
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/sha256"
-	"vos/onerror"
+	"devx/iferr"
 )
 
 func RSAGenerateKey() *rsa.PrivateKey {
 	pri, e := rsa.GenerateKey(rand.Reader, 2048)
-	onerror.Panic(e)
+	iferr.Panic(e)
 	return pri
 }
 

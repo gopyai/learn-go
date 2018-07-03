@@ -4,7 +4,7 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/rand"
-	"vos/onerror"
+	"devx/iferr"
 )
 
 func AESGenerateKey() (key []byte) {
@@ -13,11 +13,11 @@ func AESGenerateKey() (key []byte) {
 
 func AESEncrypt(key, msg []byte) (ciphermsg []byte) {
 	block, e := aes.NewCipher(key)
-	onerror.Panic(e)
+	iferr.Panic(e)
 	ciphermsg = make([]byte, aes.BlockSize+len(msg))
 	iv := ciphermsg[:aes.BlockSize]
 	_, e = rand.Read(iv)
-	onerror.Panic(e)
+	iferr.Panic(e)
 	cipher.NewCTR(block, iv).XORKeyStream(ciphermsg[aes.BlockSize:], msg)
 	return
 }
