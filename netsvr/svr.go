@@ -6,12 +6,12 @@ import (
 	"fmt"
 	"net"
 	"time"
-	"v/err"
+	"devx/iferr"
 )
 
 func main() {
 	l, e := net.Listen("tcp", ":8001")
-	err.Panic(e)
+	iferr.Panic(e)
 	defer l.Close()
 
 	for {
@@ -55,98 +55,98 @@ func r(c net.Conn) {
 	}
 }
 
-//func sockServer() {
-//	defer bg.Wg.Done()
+// func sockServer() {
+// 	defer bg.Wg.Done()
 
-//	l, e := net.Listen("tcp", ":8001")
-//	err.Panic(e)
-//	defer l.Close()
+// 	l, e := net.Listen("tcp", ":8001")
+// 	iferr.Panic(e)
+// 	defer l.Close()
 
-//	// Routine to close listener
-//	bg.Wg.Add(1)
-//	go func() {
-//		defer bg.Wg.Done()
-//		select {
-//		case <-bg.ChStop:
-//			l.Close()
-//		}
-//	}()
+// 	// Routine to close listener
+// 	bg.Wg.Add(1)
+// 	go func() {
+// 		defer bg.Wg.Done()
+// 		select {
+// 		case <-bg.ChStop:
+// 			l.Close()
+// 		}
+// 	}()
 
-//	// Accept looping
-//	for !bg.Stopped {
-//		c, e := l.Accept()
-//		if e != nil {
-//			fmt.Println("Error accept:", e)
-//			time.Sleep(time.Second)
-//			continue
-//		}
+// 	// Accept looping
+// 	for !bg.Stopped {
+// 		c, e := l.Accept()
+// 		if e != nil {
+// 			fmt.Println("Error accept:", e)
+// 			time.Sleep(time.Second)
+// 			continue
+// 		}
 
-//		bg.Wg.Add(1)
-//		go sockHandler(c)
-//	}
-//}
+// 		bg.Wg.Add(1)
+// 		go sockHandler(c)
+// 	}
+// }
 
-//func sockHandler(c net.Conn) {
-//	defer bg.Wg.Done()
-//	defer c.Close()
+// func sockHandler(c net.Conn) {
+// 	defer bg.Wg.Done()
+// 	defer c.Close()
 
-//	// Routine to close connection routine
-//	bg.Wg.Add(1)
-//	go func() {
-//		defer bg.Wg.Done()
-//		select {
-//		case <-bg.ChStop:
-//			c.Close()
-//		}
-//	}()
+// 	// Routine to close connection routine
+// 	bg.Wg.Add(1)
+// 	go func() {
+// 		defer bg.Wg.Done()
+// 		select {
+// 		case <-bg.ChStop:
+// 			c.Close()
+// 		}
+// 	}()
 
-//	// Write data
-//	bg.Wg.Add(1)
-//	go func() {
-//		defer bg.Wg.Done()
-//		for {
-//			time.Sleep(time.Second * 5)
-//			_, e := c.Write([]byte("TEST"))
-//			err.Panic(e)
-//		}
-//	}()
+// 	// Write data
+// 	bg.Wg.Add(1)
+// 	go func() {
+// 		defer bg.Wg.Done()
+// 		for {
+// 			time.Sleep(time.Second * 5)
+// 			_, e := c.Write([]byte("TEST"))
+// 			iferr.Panic(e)
+// 		}
+// 	}()
 
-//	// Read data
-//	for {
-//		s, e := bufio.NewReader(c).ReadString('\n')
-//		err.Panic(e)
+// 	// Read data
+// 	for {
+// 		s, e := bufio.NewReader(c).ReadString('\n')
+// 		iferr.Panic(e)
 
-//		x := strings.Split(s, "\t")
-//		if len(x) != 2 {
-//			fmt.Println("ERROR:", x)
-//			continue
-//		}
+// 		x := strings.Split(s, "\t")
+// 		if len(x) != 2 {
+// 			fmt.Println("ERROR:", x)
+// 			continue
+// 		}
 
-//		switch x[0] {
-//		case "REG":
-//			fmt.Println(x)
-//		case "TRG":
-//			fmt.Println(x)
-//		default:
-//			fmt.Println("ERROR:", x)
-//			continue
-//		}
-//	}
-//}
+// 		switch x[0] {
+// 		case "REG":
+// 			fmt.Println(x)
+// 		case "TRG":
+// 			fmt.Println(x)
+// 		default:
+// 			fmt.Println("ERROR:", x)
+// 			continue
+// 		}
+// 	}
+// }
 
-//func sockClient(name string) {
-//	defer wg.Done()
-//	c, e := net.Dial("tcp", "localhost:8001")
-//	err.Panic(e)
-//	defer c.Close()
+// func sockClient(name string) {
+// 	defer wg.Done()
+// 	c, e := net.Dial("tcp", "localhost:8001")
+// 	iferr.Panic(e)
+// 	defer c.Close()
 
-//	for {
-//		b, e := json.Marshal(&msg)
-//		err.Panic(e)
-//		b = append(b, '\n')
-//		_, e = c.Write(b)
-//		err.Panic(e)
-//		time.Sleep(time.Second)
-//		msg.Age++
-//	}
-//}
+// 	for {
+// 		b, e := json.Marshal(&msg)
+// 		iferr.Panic(e)
+// 		b = append(b, '\n')
+// 		_, e = c.Write(b)
+// 		iferr.Panic(e)
+// 		time.Sleep(time.Second)
+// 		msg.Age++
+// 	}
+// }
