@@ -1,0 +1,11 @@
+{{define "main" -}}
+{{range .Before}}
+{{parseWidget .}}
+{{- end}}
+
+{{template "form" .Form}}
+
+{{range .After}}
+{{parseWidget .}}
+{{- end}}
+{{- end}}

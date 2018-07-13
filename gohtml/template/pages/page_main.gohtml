@@ -1,0 +1,43 @@
+{{define "page_main" -}}
+<!doctype html>
+<html lang="en">
+<head>
+{{template "head"}}
+    <link rel="stylesheet" href="/res/app.css">
+    <link rel="stylesheet" href="/res/small.css" media="screen and (max-width:450px)">
+    <link rel="stylesheet" href="/res/normal.css" media="screen and (min-width:451px)">
+    <link rel="stylesheet" href="/res/main.css">
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="/res/app.js"></script>
+    <title>ITPA App</title>
+</head>
+<body>
+<header>
+    <div class="left">
+        <i class="fa fa-bars fa-lg"></i><img src="/res/btpn.png" alt="">
+    </div>
+    <div>
+        <h1>{{.Title}}</h1>
+    </div>
+    <div class="right">
+        <a href="/signup"><i class="fa fa-user fa-lg"></i></a>
+        <a href="/search"><i class="fa fa-search fa-lg"></i></a>
+    </div>
+</header>
+<div class="estate">
+    <nav>
+    {{template "menu" .Menu}}
+    </nav>
+    <main>
+    {{template "main" .Main}}
+    </main>
+</div>
+<div class="action"><i class="fa fa-ellipsis-h fa-2x"></i></div>
+<div class="list">
+    <a href="">Add one<i class="fa fa-plus fa-2x"></i></a>
+    <a href="">Add two<i class="fa fa-plus fa-2x"></i></a>
+</div>
+<div class="overlay"></div>
+</body>
+</html>
+{{- end}}

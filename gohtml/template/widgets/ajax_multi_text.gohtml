@@ -1,0 +1,12 @@
+{{define "ajax_multi_text" -}}
+{{$idDiv := goId -}}
+{{$idAdd := goId -}}
+<div class="ajax_multi" id="{{$idDiv}}"></div>
+<div><span class="button" id="{{$idAdd}}">+</span></div>
+<script>
+    handleAjaxMultiText(
+            [
+            {{range .Items}}{saved: {{.Saved}}, id: {{.Id}} },{{end}}
+            ], {{.IsTextArea}}, {{.IsGetHTML}}, {{$idAdd}}, {{$idDiv}}, {{.URLCreate}}, {{.Placeholder}}, {{.URLUpdate}}, {{.URLGetHTML}} );
+</script>
+{{- end}}

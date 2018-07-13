@@ -1,0 +1,8 @@
+{{define "checkbox" -}}
+<div>
+    <input type="checkbox" name={{.Name}} value={{.Value}}><span>{{.Description}}</span>
+{{if and .URL -}}
+    <a href="{{.URL}}">Link</a>
+{{- end}}
+</div>
+{{- end}}

@@ -1,0 +1,9 @@
+{{define "menu" -}}
+{{range .}}
+{{$id := goId -}}
+<div {{if .Selected}}class="selected"{{end}} id="{{$id}}">
+    <i class="{{.CSS}}"></i>{{.Display}}
+</div>
+<script> handleMenu( {{$id}}, {{.URL}} );</script>
+{{- end}}
+{{- end}}

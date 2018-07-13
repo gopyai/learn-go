@@ -1,0 +1,31 @@
+.signup-root {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.signup-item {
+    width: 20rem;
+    height: 3rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.signup-vspace {
+    height: 20vh;
+}
+
+.signup-email {
+    border: 1px solid grey;
+}
+
+.signup-button {
+    border: none;
+    border-radius: 0.3rem;
+    background-color: cadetblue;
+    color: white;
+    font-weight: bold;
+}

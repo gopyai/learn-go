@@ -1,0 +1,11 @@
+{{define "todo_list" -}}
+{{range .}}
+<a class="card todo-list" href="/todos/{{.Id}}">
+    <div class="todo-title">[{{.Id}}] {{.Title}}</div>
+    <div class="todo-due">
+        <div class="due-in">due in (days)</div>
+        <div class="due-days {{.Color}}">{{.Due}}</div>
+    </div>
+</a>
+{{- end}}
+{{- end}}

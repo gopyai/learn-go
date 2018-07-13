@@ -1,0 +1,5 @@
+{{define "ajax_button" -}}
+{{$name := goId -}}
+<div class="button full_width center" id="{{$name}}">{{.Display}}</div>
+<script>handleAjaxButton( {{$name}}, {{.Method}}, {{.URL}}, {{.URLGetHTML}} );</script>
+{{- end}}

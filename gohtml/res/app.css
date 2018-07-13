@@ -1,0 +1,142 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+div.action {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: rgb(255, 192, 0);
+    color: white;
+    cursor: pointer;
+}
+
+div.estate {
+    display: flex;
+    background-color: rgb(255, 251, 238);
+}
+
+div.list {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 2rem;
+}
+
+div.list a {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+div.list i {
+    border-radius: 50%;
+    background-color: rgb(255, 192, 0);
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+    background-color: rgb(124, 106, 85);
+    color: white;
+}
+
+header div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+/*header icon*/
+header i {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+/*header logo*/
+header img {
+    height: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+header .left {
+    flex-basis: 5rem;
+    flex-grow: 1;
+    justify-content: flex-start;
+}
+
+header .right {
+    flex-basis: 5rem;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+main {
+    width: 100%;
+    padding: 1rem;
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    z-index: 1;
+    width: 15rem;
+    padding: 0.5rem;
+    border-right: thin solid grey;
+}
+
+nav div {
+    display: block;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/*menu icon*/
+nav i {
+    display: inline-block;
+    width: 2rem;
+    text-align: center;
+}
+
+nav .selected {
+    background-color: rgba(234, 186, 28, 0.5);
+}
+
+div.overlay {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+}

@@ -1,0 +1,25 @@
+{{define "form" -}}
+{{if .IsForm -}}
+<div class="card todo-item">
+    <div class="header">
+        <div class="todo-title">[{{.Id}}] {{.Title}}</div>
+        <div class="todo-due">
+            <div class="due-in">due in (days)</div>
+            <div class="due-days {{.Color}}">{{.Due}}</div>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <form action="/todos/{{.Id}}" method="post">
+
+        {{range .Inputs}}
+        {{parseInput .}}
+        {{- end}}
+
+        <div><input type="submit" value="{{.Submit}}" name="submit"></div>
+        <div class="spacer"></div>
+        </form>
+    </div>
+</div>
+{{- end}}
+{{- end}}

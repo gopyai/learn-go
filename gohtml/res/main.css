@@ -1,0 +1,176 @@
+main > div {
+    display: flex;
+    height: fit-content;
+}
+
+main > hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+h2, p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.spacer {
+    height: 0.5rem;
+}
+
+.card {
+    background-color: #eeeeee;
+    box-shadow: 0.5rem 0.5rem 0.5rem grey;
+}
+
+.ajax_multi {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form related */
+
+form div {
+    display: flex;
+}
+
+form > div, form > input {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+form .col {
+    flex-direction: column;
+}
+
+form span {
+    width: 100%;
+}
+
+.col div {
+    margin-bottom: 0.3rem;
+    align-items: center;
+}
+
+.button, input[type="submit"] {
+    border: none;
+    border-radius: 0.3rem;
+    background-color: cadetblue;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+form a {
+    border: none;
+    border-radius: 0.3rem;
+    background-color: rgba(234, 186, 28, 0.5);
+    color: black;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 0.3rem;
+    height: fit-content;
+}
+
+.button {
+    margin-right: 0.5rem;
+    width: fit-content;
+}
+
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+    width: fit-content;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.3rem;
+}
+
+textarea {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.3rem;
+    resize: none;
+}
+
+/* To-Do related */
+
+.todo-list {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.todo-item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.todo-item .header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-item form,
+.todo-item hr {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.todo-title {
+    margin: 1rem;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    /*font-weight: bold;*/
+    font-size: 1.2rem;
+}
+
+.todo-due {
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.todo-due .due-in {
+    text-align: center;
+    width: 100%;
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+
+.todo-due .due-days {
+    padding: 0.5rem;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.todo-due .red {
+    background-color: red;
+    color: white;
+}
+
+.todo-due .yellow {
+    background-color: yellow;
+}
+
+.todo-due .green {
+    background-color: limegreen;
+}
+
+/* Others */
+
+.full_width {
+    width: 100%;
+}
+
+.center{
+    display: inline-flex;
+    justify-content: center;
+}

@@ -1,0 +1,7 @@
+{{define "select" -}}
+<option value="0" selected="">No alignment</option>
+<option value="" disabled="">---</option>
+{{range .}}
+<option value="{{.Value}}"{{if .Selected}} selected{{end}}>{{.Display}}</option>
+{{- end}}
+{{- end}}

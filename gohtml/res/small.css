@@ -1,0 +1,8 @@
+/*header logo*/
+header img {
+    display: none;
+}
+
+h1.mobile {
+    font-size: 1.1rem;
+}

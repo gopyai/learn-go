@@ -1,0 +1,5 @@
+{{define "button" -}}
+{{$name := goId -}}
+<div class="button full_width center" id="{{$name}}">{{.Display}}</div>
+<script>handleButton( {{$name}}, {{.URL}} );</script>
+{{- end}}

@@ -1,0 +1,13 @@
+{{define "ajax_select" -}}
+{{$name := goId -}}
+<form>
+<label>{{.Label}}</label>
+<select id="{{$name}}"></select>
+</form>
+<script>
+    handleAjaxSelect( {{$name}}, {{.URLLoad}}, {{.URLUpdate}},
+            optId => ({{.JSOptId}}),
+            data => {{.JSDataHTML}},
+    );
+</script>
+{{- end}}
