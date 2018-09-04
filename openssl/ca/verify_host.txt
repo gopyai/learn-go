@@ -1,0 +1,81 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 4096 (0x1000)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=ID, ST=DKI Jakarta, O=stefarf, CN=v1.stefarf.com
+        Validity
+            Not Before: Sep  4 12:51:21 2018 GMT
+            Not After : Sep 14 12:51:21 2019 GMT
+        Subject: C=ID, ST=DKI Jakarta, O=stefarf, CN=api.stefarf.com/emailAddress=stefarf@gmail.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:a3:8b:1c:42:24:2b:b7:26:fd:b4:75:65:60:cb:
+                    5b:2f:7a:2b:f6:ff:b1:98:e5:bf:e1:13:e1:06:6d:
+                    24:d8:ff:b8:bf:35:a0:66:02:5a:04:75:27:67:75:
+                    09:88:3c:a5:59:89:6d:62:f8:90:7f:83:c8:07:61:
+                    f7:7c:8e:37:3d:35:5a:64:ef:94:0a:2f:f4:f0:06:
+                    67:64:1b:26:0a:cc:8b:f2:62:df:d4:69:ca:22:e6:
+                    95:d4:a9:a9:3f:49:c4:25:c9:7a:62:46:ec:d8:c0:
+                    e6:6a:56:04:00:5f:73:6b:f4:b4:cf:cf:27:3a:c8:
+                    1a:ca:6c:ca:f4:85:37:e7:cd:7e:f3:e5:e4:f6:19:
+                    e7:a0:e9:3e:f0:4b:ea:22:73:57:79:3f:10:9d:13:
+                    a7:25:ae:91:ec:cf:94:69:d9:65:bb:95:d9:49:e1:
+                    fd:fa:81:7e:3b:83:a8:ea:d7:43:1c:da:b8:a4:8b:
+                    66:64:69:f7:2b:a6:2b:33:c1:b5:37:92:52:74:22:
+                    ca:fd:1f:95:3b:8a:1d:57:99:a6:1c:9c:7e:ae:7d:
+                    cc:24:ab:eb:1f:de:df:4f:d1:17:5c:fd:12:13:c0:
+                    71:1e:a7:ee:ee:41:cd:28:76:18:e5:3b:62:15:e7:
+                    0c:6c:ef:f5:80:85:bf:be:e6:39:f8:d7:3a:7e:44:
+                    a6:27
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Cert Type: 
+                SSL Server
+            Netscape Comment: 
+                OpenSSL Generated Server Certificate
+            X509v3 Subject Key Identifier: 
+                99:58:1F:C8:0C:78:73:26:C9:ED:4E:97:B7:8B:A4:20:19:17:B1:47
+            X509v3 Authority Key Identifier: 
+                keyid:CA:B3:F7:73:D9:DF:4F:59:1B:BC:56:0E:DB:D6:6A:03:F3:EA:9C:AE
+                DirName:/C=ID/ST=DKI Jakarta/O=stefarf/CN=ca.stefarf.com
+                serial:10:00
+
+            X509v3 Key Usage: critical
+                Digital Signature, Key Encipherment
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication
+    Signature Algorithm: sha256WithRSAEncryption
+         a3:81:7f:0f:b4:1d:6b:5f:24:8f:3b:9d:8f:ea:43:10:5c:f7:
+         ab:f9:08:7a:09:60:4c:4d:fd:8d:d7:b4:a1:fb:3f:2e:6b:c7:
+         77:80:a9:37:64:80:33:4b:c3:2d:45:0c:43:dd:2e:a9:19:10:
+         7b:0e:68:ea:30:10:51:67:20:de:a9:56:9c:ae:f8:de:b8:bc:
+         05:ed:e7:72:ab:c5:02:9f:d9:63:6f:f5:cf:06:67:70:68:38:
+         b1:de:4c:cb:5f:86:7c:47:eb:6b:65:f0:e7:41:39:06:0a:54:
+         e8:1a:4d:1a:c8:04:38:33:4d:37:5d:81:e3:85:f0:6f:bd:d4:
+         f7:3a:68:e6:f9:e7:d0:ed:40:af:63:f9:0f:3d:36:ea:10:1e:
+         ff:c8:30:3e:12:5d:e5:d2:f1:2d:59:84:c9:62:3e:ac:d5:52:
+         e0:22:eb:89:62:9e:b8:e4:10:09:fb:bd:aa:13:a7:75:26:be:
+         e3:2f:06:53:25:85:dc:ed:07:f8:66:70:4b:d3:96:d4:12:dd:
+         a7:fd:5a:27:ad:2f:d6:ae:08:7b:77:62:58:cd:f9:45:86:87:
+         f2:00:56:d8:17:58:68:89:28:77:e5:33:1c:f0:a9:34:f8:a1:
+         61:bb:d2:a1:78:4d:fc:7e:97:3c:d1:18:58:57:7b:6e:e6:bd:
+         71:d6:3e:36:2e:89:98:53:eb:c4:c6:bf:d7:b3:18:5b:55:38:
+         25:52:5c:0e:48:77:b5:ea:04:85:25:b2:46:58:2e:5c:74:8d:
+         80:12:be:8a:61:81:b0:36:db:7a:76:7a:77:5b:e4:91:49:10:
+         86:d3:a6:e2:a5:47:81:cc:3b:d8:68:9c:b5:34:bb:33:46:96:
+         97:f5:e8:cb:d9:da:10:3f:97:16:8e:13:75:08:8e:b2:2c:7b:
+         73:03:83:66:4c:43:53:de:12:62:c7:ef:2e:8c:5a:92:dd:07:
+         2a:db:d8:c8:af:83:fe:ca:d4:df:02:21:93:d3:85:39:61:a2:
+         f7:a4:c9:96:b3:26:b7:ca:e1:0b:8d:dd:e0:2d:fa:5b:98:bc:
+         f1:a0:c4:ce:df:02:28:61:fb:2c:95:a1:01:2a:b8:3f:1e:c5:
+         d0:8e:37:b5:c5:30:89:a7:8b:f5:9e:1b:53:7c:5f:e5:e8:90:
+         a0:a9:ad:c5:7f:4d:9d:32:a5:bf:7a:93:ee:e6:ff:07:cb:62:
+         32:7b:0e:40:04:dc:aa:43:36:69:b8:cc:06:aa:34:c6:cf:70:
+         8a:90:41:51:84:21:52:a7:ff:84:a5:9c:a9:54:0c:48:c2:ed:
+         4a:2c:d6:48:9c:cb:f9:3f:00:35:88:ec:6a:2e:f1:9e:ac:83:
+         63:76:a7:65:11:f7:32:16
