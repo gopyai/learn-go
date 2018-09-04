@@ -6,22 +6,22 @@ import (
 	"net/url"
 	"sync"
 	"time"
-	"vos/onerror"
 
 	"github.com/gorilla/websocket"
+	"bitbucket.org/stefarf/iferr"
 )
 
 func runClient(port int) {
-	//d := websocket.Dialer{TLSClientConfig: &tls.Config{InsecureSkipVerify: true}}
+	// d := websocket.Dialer{TLSClientConfig: &tls.Config{InsecureSkipVerify: true}}
 	d := websocket.DefaultDialer
 	s := "ws"
 	u := url.URL{Scheme: s, Host: fmt.Sprintf("localhost:%d", port), Path: "/"}
 
 	c, _, e := d.Dial(u.String(), nil)
-	onerror.Panic(e)
+	iferr.Panic(e)
 	defer c.Close()
 
-	c.SetReadLimit(5)
+	// c.SetReadLimit(1000)
 
 	var wg sync.WaitGroup
 	wg.Add(2)
@@ -29,7 +29,7 @@ func runClient(port int) {
 	go func() {
 		defer wg.Done()
 		for {
-			onerror.Fatal(c.WriteMessage(websocket.BinaryMessage, []byte{0, 1, 2, 3, 4, 5}))
+			iferr.Exit(c.WriteMessage(websocket.BinaryMessage, []byte{0, 1, 2, 3, 4, 5}), "Fatal")
 			time.Sleep(time.Second * 2)
 		}
 	}()
@@ -38,7 +38,7 @@ func runClient(port int) {
 		defer wg.Done()
 		for {
 			_, p, e := c.ReadMessage()
-			onerror.Fatal(e)
+			iferr.Exit(e, "Fatal")
 			log.Printf("Received: %v", p)
 		}
 	}()

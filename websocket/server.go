@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"vos/onerror"
-
 	"github.com/gorilla/websocket"
+	"bitbucket.org/stefarf/iferr"
 )
 
 var (
@@ -17,8 +16,10 @@ var (
 
 func wsHandler(w http.ResponseWriter, r *http.Request) {
 	conn, e := upgrader.Upgrade(w, r, nil)
-	onerror.Panic(e)
+	iferr.Panic(e)
 	defer conn.Close()
+
+	// conn.SetReadLimit(1000)
 
 	for {
 		msgType, p, e := conn.ReadMessage()
@@ -35,8 +36,7 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func runServer(port int, certFile, keyFile string) {
-	http.HandleFunc("/", wsHandler)
 	addr := fmt.Sprintf(":%d", port)
-	onerror.Panic(http.ListenAndServe(addr, nil))
-	//onerror.Panic(http.ListenAndServeTLS(addr, certFile, keyFile, nil))
+	iferr.Panic(http.ListenAndServe(addr, http.HandlerFunc(wsHandler)))
+	// iferr.Panic(http.ListenAndServeTLS(addr, certFile, keyFile, nil))
 }

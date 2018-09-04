@@ -1,10 +1,12 @@
 package main
 
-import "vos/lib"
+import (
+	"github.com/gopyai/go-keyb"
+)
 
 func main() {
 	go runServer(10000, "cert.pem", "key.pem")
 	go runClient(10000)
 
-	lib.WaitKeyEnter()
+	keyb.WaitKeyEnter()
 }
