@@ -9,12 +9,16 @@ import (
 
 	"github.com/gorilla/websocket"
 	"bitbucket.org/stefarf/iferr"
+	"crypto/tls"
 )
 
 func runClient(port int) {
-	// d := websocket.Dialer{TLSClientConfig: &tls.Config{InsecureSkipVerify: true}}
-	d := websocket.DefaultDialer
-	s := "ws"
+	d := websocket.Dialer{TLSClientConfig: &tls.Config{InsecureSkipVerify: true}}
+	s := "wss"
+
+	// d := websocket.DefaultDialer
+	// s := "ws"
+
 	u := url.URL{Scheme: s, Host: fmt.Sprintf("localhost:%d", port), Path: "/"}
 
 	c, _, e := d.Dial(u.String(), nil)

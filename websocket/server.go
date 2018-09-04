@@ -36,7 +36,8 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func runServer(port int, certFile, keyFile string) {
+	h := http.HandlerFunc(wsHandler)
 	addr := fmt.Sprintf(":%d", port)
-	iferr.Panic(http.ListenAndServe(addr, http.HandlerFunc(wsHandler)))
-	// iferr.Panic(http.ListenAndServeTLS(addr, certFile, keyFile, nil))
+	// iferr.Panic(http.ListenAndServe(addr, h))
+	iferr.Panic(http.ListenAndServeTLS(addr, certFile, keyFile, h))
 }
